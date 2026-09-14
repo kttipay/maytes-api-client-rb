@@ -1,0 +1,41 @@
+# Verifies the published package builds and is consumable on every Ruby version it
+# claims to support. The upstream pipeline that generates this repo exercises a
+# single version, so without this matrix that claim is untested.
+#
+# This file is generated — edit it at sdks/backend-sdk/mirror/ruby/ in the
+# api-ts-v3 monorepo, not here.
+
+name: test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  install:
+    name: Ruby ${{ matrix.ruby }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby: ['3.1', '3.2', '3.3', '3.4']
+    steps:
+      - uses: actions/checkout@v5
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+          bundler-cache: true
+      # `gem build` is what RubyGems runs on push; a gemspec that fails here
+      # would fail the release too.
+      - run: gem build maytes_api_client.gemspec
+      - name: Smoke test
+        run: |
+          ruby -Ilib -e '
+            require "maytes_api_client"
+            %i[create_maytes_api_client verify_webhook_signature].each do |m|
+              abort("missing method: #{m}") unless MaytesApiClient.respond_to?(m)
+            end
+            puts "exports ok on #{RUBY_VERSION}"
+          '
