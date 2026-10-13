@@ -11,5 +11,5 @@ Generator version: 7.22.0
 =end
 
 module MaytesApiClient
-  VERSION = '0.1.3'
+  VERSION = '0.1.4'
 end

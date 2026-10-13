@@ -56,6 +56,7 @@ module MaytesApiClient
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'expires_at'
       ])
     end
 
@@ -117,10 +118,6 @@ module MaytesApiClient
         invalid_properties.push('invalid value for "checkout_url", checkout_url cannot be nil.')
       end
 
-      if @expires_at.nil?
-        invalid_properties.push('invalid value for "expires_at", expires_at cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -131,7 +128,6 @@ module MaytesApiClient
       return false if @checkout_uuid.nil?
       return false if @status.nil?
       return false if @checkout_url.nil?
-      return false if @expires_at.nil?
       true
     end
 
@@ -163,16 +159,6 @@ module MaytesApiClient
       end
 
       @checkout_url = checkout_url
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] expires_at Value to be assigned
-    def expires_at=(expires_at)
-      if expires_at.nil?
-        fail ArgumentError, 'expires_at cannot be nil'
-      end
-
-      @expires_at = expires_at
     end
 
     # Checks equality by comparing each attribute.
