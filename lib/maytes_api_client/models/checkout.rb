@@ -41,6 +41,8 @@ module MaytesApiClient
 
     attr_accessor :refunded_amount
 
+    attr_accessor :remaining_amount
+
     attr_accessor :merchant_processor_fee
 
     attr_accessor :merchant_service_fee
@@ -63,6 +65,7 @@ module MaytesApiClient
         :'currency' => :'currency',
         :'service_fee' => :'service_fee',
         :'refunded_amount' => :'refunded_amount',
+        :'remaining_amount' => :'remaining_amount',
         :'merchant_processor_fee' => :'merchant_processor_fee',
         :'merchant_service_fee' => :'merchant_service_fee',
         :'last_refund_at' => :'last_refund_at'
@@ -95,6 +98,7 @@ module MaytesApiClient
         :'currency' => :'String',
         :'service_fee' => :'Fee',
         :'refunded_amount' => :'Integer',
+        :'remaining_amount' => :'Integer',
         :'merchant_processor_fee' => :'Integer',
         :'merchant_service_fee' => :'Integer',
         :'last_refund_at' => :'Time'
@@ -208,6 +212,12 @@ module MaytesApiClient
         self.refunded_amount = nil
       end
 
+      if attributes.key?(:'remaining_amount')
+        self.remaining_amount = attributes[:'remaining_amount']
+      else
+        self.remaining_amount = nil
+      end
+
       if attributes.key?(:'merchant_processor_fee')
         self.merchant_processor_fee = attributes[:'merchant_processor_fee']
       else
@@ -264,6 +274,14 @@ module MaytesApiClient
         invalid_properties.push('invalid value for "refunded_amount", must be greater than or equal to 0.')
       end
 
+      if @remaining_amount.nil?
+        invalid_properties.push('invalid value for "remaining_amount", remaining_amount cannot be nil.')
+      end
+
+      if @remaining_amount < 0
+        invalid_properties.push('invalid value for "remaining_amount", must be greater than or equal to 0.')
+      end
+
       if @merchant_processor_fee.nil?
         invalid_properties.push('invalid value for "merchant_processor_fee", merchant_processor_fee cannot be nil.')
       end
@@ -295,6 +313,8 @@ module MaytesApiClient
       return false if @service_fee.nil?
       return false if @refunded_amount.nil?
       return false if @refunded_amount < 0
+      return false if @remaining_amount.nil?
+      return false if @remaining_amount < 0
       return false if @merchant_processor_fee.nil?
       return false if @merchant_processor_fee < 0
       return false if @merchant_service_fee.nil?
@@ -377,6 +397,20 @@ module MaytesApiClient
     end
 
     # Custom attribute writer method with validation
+    # @param [Object] remaining_amount Value to be assigned
+    def remaining_amount=(remaining_amount)
+      if remaining_amount.nil?
+        fail ArgumentError, 'remaining_amount cannot be nil'
+      end
+
+      if remaining_amount < 0
+        fail ArgumentError, 'invalid value for "remaining_amount", must be greater than or equal to 0.'
+      end
+
+      @remaining_amount = remaining_amount
+    end
+
+    # Custom attribute writer method with validation
     # @param [Object] merchant_processor_fee Value to be assigned
     def merchant_processor_fee=(merchant_processor_fee)
       if merchant_processor_fee.nil?
@@ -422,6 +456,7 @@ module MaytesApiClient
           currency == o.currency &&
           service_fee == o.service_fee &&
           refunded_amount == o.refunded_amount &&
+          remaining_amount == o.remaining_amount &&
           merchant_processor_fee == o.merchant_processor_fee &&
           merchant_service_fee == o.merchant_service_fee &&
           last_refund_at == o.last_refund_at
@@ -436,7 +471,7 @@ module MaytesApiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [checkout_uuid, merchant_order_id, status, transaction_ref, checkout_url, merchant_expires_at, captured_at, return_url, cancel_url, amount, currency, service_fee, refunded_amount, merchant_processor_fee, merchant_service_fee, last_refund_at].hash
+      [checkout_uuid, merchant_order_id, status, transaction_ref, checkout_url, merchant_expires_at, captured_at, return_url, cancel_url, amount, currency, service_fee, refunded_amount, remaining_amount, merchant_processor_fee, merchant_service_fee, last_refund_at].hash
     end
 
     # Builds the object from hash

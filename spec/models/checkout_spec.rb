@@ -105,6 +105,12 @@ describe MaytesApiClient::Checkout do
     end
   end
 
+  describe 'test attribute "remaining_amount"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "merchant_processor_fee"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

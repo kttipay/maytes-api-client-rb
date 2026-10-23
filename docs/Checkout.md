@@ -17,6 +17,7 @@
 | **currency** | **String** |  |  |
 | **service_fee** | [**Fee**](Fee.md) |  |  |
 | **refunded_amount** | **Integer** |  |  |
+| **remaining_amount** | **Integer** |  |  |
 | **merchant_processor_fee** | **Integer** |  |  |
 | **merchant_service_fee** | **Integer** |  |  |
 | **last_refund_at** | **Time** |  |  |
@@ -40,6 +41,7 @@ instance = MaytesApiClient::Checkout.new(
   currency: null,
   service_fee: null,
   refunded_amount: null,
+  remaining_amount: null,
   merchant_processor_fee: null,
   merchant_service_fee: null,
   last_refund_at: null
