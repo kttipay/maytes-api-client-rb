@@ -42,7 +42,7 @@ describe MaytesApiClient::CreateCheckout422Response do
   describe 'test attribute "code"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["invalid_amount", "amount_below_minimum", "invalid_amount_arithmetic", "currency_not_supported", "merchant_currency_mismatch", "merchant_not_configured"])
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["invalid_amount", "invalid_friends", "amount_below_minimum", "invalid_amount_arithmetic", "currency_not_supported", "merchant_currency_mismatch", "merchant_not_configured"])
       # validator.allowable_values.each do |value|
       #   expect { instance.code = value }.not_to raise_error
       # end

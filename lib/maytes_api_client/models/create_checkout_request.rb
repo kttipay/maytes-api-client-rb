@@ -43,6 +43,9 @@ module MaytesApiClient
 
     attr_accessor :allocation_model
 
+    # Who the customer is expected to split with. Pre-fills their share and allocation screens; the customer can still change it. Personal data — send it only when you hold it.
+    attr_accessor :friends
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -81,7 +84,8 @@ module MaytesApiClient
         :'shipping_amount' => :'shipping_amount',
         :'customer_data' => :'customer_data',
         :'metadata' => :'metadata',
-        :'allocation_model' => :'allocation_model'
+        :'allocation_model' => :'allocation_model',
+        :'friends' => :'friends'
       }
     end
 
@@ -111,7 +115,8 @@ module MaytesApiClient
         :'shipping_amount' => :'Integer',
         :'customer_data' => :'CustomerData',
         :'metadata' => :'Hash<String, Object>',
-        :'allocation_model' => :'String'
+        :'allocation_model' => :'String',
+        :'friends' => :'CheckoutFriends'
       }
     end
 
@@ -126,7 +131,8 @@ module MaytesApiClient
         :'shipping_amount',
         :'customer_data',
         :'metadata',
-        :'allocation_model'
+        :'allocation_model',
+        :'friends'
       ])
     end
 
@@ -218,6 +224,10 @@ module MaytesApiClient
 
       if attributes.key?(:'allocation_model')
         self.allocation_model = attributes[:'allocation_model']
+      end
+
+      if attributes.key?(:'friends')
+        self.friends = attributes[:'friends']
       end
     end
 
@@ -385,7 +395,8 @@ module MaytesApiClient
           shipping_amount == o.shipping_amount &&
           customer_data == o.customer_data &&
           metadata == o.metadata &&
-          allocation_model == o.allocation_model
+          allocation_model == o.allocation_model &&
+          friends == o.friends
     end
 
     # @see the `==` method
@@ -397,7 +408,7 @@ module MaytesApiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [merchant_order_id, merchant_expires_at, total_amount, currency, return_url, cancel_url, items, fees, discounts, tax, shipping_amount, customer_data, metadata, allocation_model].hash
+      [merchant_order_id, merchant_expires_at, total_amount, currency, return_url, cancel_url, items, fees, discounts, tax, shipping_amount, customer_data, metadata, allocation_model, friends].hash
     end
 
     # Builds the object from hash

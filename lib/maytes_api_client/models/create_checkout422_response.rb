@@ -156,7 +156,7 @@ module MaytesApiClient
       return false if @message.nil?
       return false if @error.nil?
       return false if @code.nil?
-      code_validator = EnumAttributeValidator.new('String', ["invalid_amount", "amount_below_minimum", "invalid_amount_arithmetic", "currency_not_supported", "merchant_currency_mismatch", "merchant_not_configured"])
+      code_validator = EnumAttributeValidator.new('String', ["invalid_amount", "invalid_friends", "amount_below_minimum", "invalid_amount_arithmetic", "currency_not_supported", "merchant_currency_mismatch", "merchant_not_configured"])
       return false unless code_validator.valid?(@code)
       true
     end
@@ -184,7 +184,7 @@ module MaytesApiClient
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] code Object to be assigned
     def code=(code)
-      validator = EnumAttributeValidator.new('String', ["invalid_amount", "amount_below_minimum", "invalid_amount_arithmetic", "currency_not_supported", "merchant_currency_mismatch", "merchant_not_configured"])
+      validator = EnumAttributeValidator.new('String', ["invalid_amount", "invalid_friends", "amount_below_minimum", "invalid_amount_arithmetic", "currency_not_supported", "merchant_currency_mismatch", "merchant_not_configured"])
       unless validator.valid?(code)
         fail ArgumentError, "invalid value for \"code\", must be one of #{validator.allowable_values}."
       end

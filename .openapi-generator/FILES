@@ -20,6 +20,9 @@ docs/CheckoutCaptured.md
 docs/CheckoutCreated.md
 docs/CheckoutDiscount.md
 docs/CheckoutFee.md
+docs/CheckoutFriend.md
+docs/CheckoutFriendItem.md
+docs/CheckoutFriends.md
 docs/CreateCheckout401Response.md
 docs/CreateCheckout409Response.md
 docs/CreateCheckout422Response.md
@@ -76,6 +79,9 @@ lib/maytes_api_client/models/checkout_captured.rb
 lib/maytes_api_client/models/checkout_created.rb
 lib/maytes_api_client/models/checkout_discount.rb
 lib/maytes_api_client/models/checkout_fee.rb
+lib/maytes_api_client/models/checkout_friend.rb
+lib/maytes_api_client/models/checkout_friend_item.rb
+lib/maytes_api_client/models/checkout_friends.rb
 lib/maytes_api_client/models/create_checkout401_response.rb
 lib/maytes_api_client/models/create_checkout409_response.rb
 lib/maytes_api_client/models/create_checkout422_response.rb
@@ -126,6 +132,9 @@ spec/models/checkout_captured_spec.rb
 spec/models/checkout_created_spec.rb
 spec/models/checkout_discount_spec.rb
 spec/models/checkout_fee_spec.rb
+spec/models/checkout_friend_item_spec.rb
+spec/models/checkout_friend_spec.rb
+spec/models/checkout_friends_spec.rb
 spec/models/checkout_spec.rb
 spec/models/create_checkout401_response_spec.rb
 spec/models/create_checkout409_response_spec.rb
