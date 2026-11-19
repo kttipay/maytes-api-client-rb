@@ -21,6 +21,7 @@ module MaytesApiClient
 
     attr_accessor :status
 
+    # Always null. Will be removed in a future API version.
     attr_accessor :transaction_ref
 
     attr_accessor :checkout_url
