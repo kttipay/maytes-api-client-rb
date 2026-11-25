@@ -24,6 +24,7 @@ docs/CheckoutFriend.md
 docs/CheckoutFriendItem.md
 docs/CheckoutFriends.md
 docs/CreateCheckout401Response.md
+docs/CreateCheckout403Response.md
 docs/CreateCheckout409Response.md
 docs/CreateCheckout422Response.md
 docs/CreateCheckoutRequest.md
@@ -55,6 +56,7 @@ docs/RefundCheckout409Response.md
 docs/ServiceCustomData.md
 docs/ServiceLineItem.md
 docs/Settlement.md
+docs/SettlementUpsell.md
 docs/Tax.md
 docs/TicketCustomData.md
 docs/TicketLineItem.md
@@ -83,6 +85,7 @@ lib/maytes_api_client/models/checkout_friend.rb
 lib/maytes_api_client/models/checkout_friend_item.rb
 lib/maytes_api_client/models/checkout_friends.rb
 lib/maytes_api_client/models/create_checkout401_response.rb
+lib/maytes_api_client/models/create_checkout403_response.rb
 lib/maytes_api_client/models/create_checkout409_response.rb
 lib/maytes_api_client/models/create_checkout422_response.rb
 lib/maytes_api_client/models/create_checkout_request.rb
@@ -113,6 +116,7 @@ lib/maytes_api_client/models/refund_checkout409_response.rb
 lib/maytes_api_client/models/service_custom_data.rb
 lib/maytes_api_client/models/service_line_item.rb
 lib/maytes_api_client/models/settlement.rb
+lib/maytes_api_client/models/settlement_upsell.rb
 lib/maytes_api_client/models/tax.rb
 lib/maytes_api_client/models/ticket_custom_data.rb
 lib/maytes_api_client/models/ticket_line_item.rb
@@ -137,6 +141,7 @@ spec/models/checkout_friend_spec.rb
 spec/models/checkout_friends_spec.rb
 spec/models/checkout_spec.rb
 spec/models/create_checkout401_response_spec.rb
+spec/models/create_checkout403_response_spec.rb
 spec/models/create_checkout409_response_spec.rb
 spec/models/create_checkout422_response_spec.rb
 spec/models/create_checkout_request_spec.rb
@@ -167,6 +172,7 @@ spec/models/refund_checkout409_response_spec.rb
 spec/models/service_custom_data_spec.rb
 spec/models/service_line_item_spec.rb
 spec/models/settlement_spec.rb
+spec/models/settlement_upsell_spec.rb
 spec/models/tax_spec.rb
 spec/models/ticket_custom_data_spec.rb
 spec/models/ticket_line_item_spec.rb

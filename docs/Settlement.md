@@ -20,6 +20,7 @@
 | **reviewed_by_user_uuid** | **String** |  |  |
 | **reviewed_at** | **Time** |  |  |
 | **rejection_reason** | **String** |  |  |
+| **upsell** | [**SettlementUpsell**](SettlementUpsell.md) |  |  |
 | **created_at** | **Time** |  |  |
 | **updated_at** | **Time** |  |  |
 
@@ -45,6 +46,7 @@ instance = MaytesApiClient::Settlement.new(
   reviewed_by_user_uuid: null,
   reviewed_at: null,
   rejection_reason: null,
+  upsell: null,
   created_at: null,
   updated_at: null
 )

@@ -47,6 +47,8 @@ module MaytesApiClient
 
     attr_accessor :rejection_reason
 
+    attr_accessor :upsell
+
     attr_accessor :created_at
 
     attr_accessor :updated_at
@@ -70,6 +72,7 @@ module MaytesApiClient
         :'reviewed_by_user_uuid' => :'reviewed_by_user_uuid',
         :'reviewed_at' => :'reviewed_at',
         :'rejection_reason' => :'rejection_reason',
+        :'upsell' => :'upsell',
         :'created_at' => :'created_at',
         :'updated_at' => :'updated_at'
       }
@@ -104,6 +107,7 @@ module MaytesApiClient
         :'reviewed_by_user_uuid' => :'String',
         :'reviewed_at' => :'Time',
         :'rejection_reason' => :'String',
+        :'upsell' => :'SettlementUpsell',
         :'created_at' => :'Time',
         :'updated_at' => :'Time'
       }
@@ -119,6 +123,7 @@ module MaytesApiClient
         :'reviewed_by_user_uuid',
         :'reviewed_at',
         :'rejection_reason',
+        :'upsell',
       ])
     end
 
@@ -232,6 +237,12 @@ module MaytesApiClient
         self.rejection_reason = attributes[:'rejection_reason']
       else
         self.rejection_reason = nil
+      end
+
+      if attributes.key?(:'upsell')
+        self.upsell = attributes[:'upsell']
+      else
+        self.upsell = nil
       end
 
       if attributes.key?(:'created_at')
@@ -466,6 +477,7 @@ module MaytesApiClient
           reviewed_by_user_uuid == o.reviewed_by_user_uuid &&
           reviewed_at == o.reviewed_at &&
           rejection_reason == o.rejection_reason &&
+          upsell == o.upsell &&
           created_at == o.created_at &&
           updated_at == o.updated_at
     end
@@ -479,7 +491,7 @@ module MaytesApiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [uuid, merchant_uuid, period_from, period_to, idempotency_key, merchant_payable_amount, settled_amount, currency, status, stripe_transfer_id, notes, settled_at, expires_at, reviewed_by_user_uuid, reviewed_at, rejection_reason, created_at, updated_at].hash
+      [uuid, merchant_uuid, period_from, period_to, idempotency_key, merchant_payable_amount, settled_amount, currency, status, stripe_transfer_id, notes, settled_at, expires_at, reviewed_by_user_uuid, reviewed_at, rejection_reason, upsell, created_at, updated_at].hash
     end
 
     # Builds the object from hash
